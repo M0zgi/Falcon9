@@ -70,10 +70,10 @@ namespace Falcon9
 
         //1.4 Создать метод, в который передаются аргументы по ссылке.
 
+        // -----> смотреть передачу массива в 1.8
 
-
-       // 1.5 Создать не менее двух статических полей(различных типов),
-       // представляющих общие характеристики объектов данного класса.
+        // 1.5 Создать не менее двух статических полей(различных типов),
+        // представляющих общие характеристики объектов данного класса.
 
         public static string consoleName;
         private static bool forTouristFlights;
@@ -107,6 +107,18 @@ namespace Falcon9
         }
 
         //1.8 Создать массив(не менее 5 элементов) объектов созданного класса.
+
+        public static void Resize<T>(int NewSize, ref T[] Dragon2Arr)
+        {
+            T[] Dragon2ArrNew = new T[NewSize];
+
+            for (int i = 0; i < Dragon2Arr.Length && i < Dragon2ArrNew.Length; i++)
+            {
+                Dragon2ArrNew[i] = Dragon2Arr[i];
+            }
+
+            Dragon2Arr = Dragon2ArrNew;
+        }
 
         //1.9 Создать дополнительный метод для данного класса в другом файле, используя ключевое слово partial.
 
@@ -157,6 +169,27 @@ namespace Falcon9
                 Dragon2Array[i].GetColor();               
                 Console.Write($"Полезная нагрузка с МКС {Dragon2Array[i].PUseful_ISS_load}");           
                 Console.Write("\n");
+            }
+
+            Dragon2.Resize(5, ref Dragon2Array);
+
+            Dragon2Array[4] = new Dragon2("Crew_Dragon4");
+
+            Dragon2Array[4].SetColor(Color.Red);
+            Dragon2Array[4].PUseful_ISS_load = 4500;
+
+            for (int i = 0; i < Dragon2Array.Length; i++)
+            {
+                if (Dragon2Array[i] != null)
+                {
+                    Console.Write("\n");
+                    Console.WriteLine($"Космический корабль: {(Dragon2Array[i].falconName == null ? "No Name" : Dragon2Array[i].falconName)}");
+                    Console.Write("Цвет корабля: ");
+                    Dragon2Array[i].GetColor();
+                    Console.Write($"Полезная нагрузка с МКС {Dragon2Array[i].PUseful_ISS_load}");
+                    Console.Write("\n");
+                }                
+               
             }
 
             Console.ReadLine();
