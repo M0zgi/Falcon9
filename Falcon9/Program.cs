@@ -13,7 +13,7 @@ namespace Falcon9
         White,
         Black
     }
-    class Dragon2
+    partial class Dragon2
     {
         
         //1.2 Реализовать не менее пяти закрытых полей (различных типов),
@@ -122,6 +122,7 @@ namespace Falcon9
 
         //1.9 Создать дополнительный метод для данного класса в другом файле, используя ключевое слово partial.
 
+        //partial Class2, Class1
     }
     class Program
     {
@@ -191,6 +192,11 @@ namespace Falcon9
                 }                
                
             }
+
+            Console.Write("\n");
+            Dragon2.CheckStatus0();
+            Console.Write("\n");
+            Dragon2.CheckStatus1();
 
             Console.ReadLine();
         }
